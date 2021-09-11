@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from telegram_bot.views import web_hook_view
-
+from telegram_bot import api
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('webhook/', web_hook_view) #csrf_exempt(web_hook_view))
+    path('webhook/', web_hook_view), #csrf_exempt(web_hook_view))
+    path('users/', include(api.urls))
 ]
 

@@ -42,7 +42,7 @@ def groups(message):
         for group in groups:
             markup = KeyboardButton(group.name)
             markups.add(markup)
-            msg = bot.send_message(message.from_user.id,"salom", parse_mode="html", reply_markup=markups)
+            msg = bot.send_message(message.from_user.id,"Ushbu yo\'nalishda bizda quyidagi guruhlar mavjud👇:", parse_mode="html", reply_markup=markups)
             bot.register_next_step_handler(msg, group_data)
 
     except Exception as e:
